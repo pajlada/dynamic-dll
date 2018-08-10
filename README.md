@@ -3,8 +3,8 @@
 tool for generating boilerplate code to dynamically load a dll file, when only given a source file
 
 ## install
-it's probably smart to do this in a virtual environment
-tested with clang 6
+it's probably smart to do this in a virtual environment  
+tested with clang 6  
 `pip install clang`
 
 ## usage
