@@ -18,7 +18,10 @@ class PluginFunction:
         self.comment = fn.raw_comment
 
         # XXX(pajlada): We might need to return void in case length of ret is 0
-        self.arguments = ', '.join(arg.type.spelling for arg in fn.get_arguments())
+        if include_argument_name:
+            self.arguments = ', '.join(arg.type.spelling + ' ' + arg.displayname for arg in fn.get_arguments())
+        else:
+            self.arguments = ', '.join(arg.type.spelling for arg in fn.get_arguments())
 
         self.function_name = fn.spelling
 
@@ -65,8 +68,9 @@ except Exception as e:
 procs_variable_name = config.get('procs_variable_name', 'pajladaProcs')
 lib_variable_name = config.get('lib_variable_name', 'libPajlada')
 dll_error_name = config.get('dll_error_name', 'PajladaResult_DLLError')
-include_dirs = config.get('include_dirs', ['include'])
 function_prefix = config.get('function_prefix', 'Pajlada')
+include_argument_name = config.get('include_argument_name', False)
+include_dirs = config.get('include_dirs', ['include'])
 
 translation_unit = index.parse(sys.argv[1], args=[''.join('-I' + i for i in include_dirs)], options=clang.cindex.TranslationUnit.PARSE_DETAILED_PROCESSING_RECORD+clang.cindex.TranslationUnit.PARSE_SKIP_FUNCTION_BODIES)
 
