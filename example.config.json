@@ -4,6 +4,7 @@
     "dll_error_name": "PajladaResult_DLLError",
     "function_prefix": "Pajlada",
     "include_argument_name": false,
+    "include_generation_timestamp": true,
     "include_dirs": [
         "include"
     ]
