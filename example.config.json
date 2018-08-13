@@ -1,0 +1,9 @@
+{
+    "procs_variable_name": "pajladaProcs",
+    "lib_variable_name": "libPajlada",
+    "dll_error_name": "PajladaResult_DLLError",
+    "function_prefix": "Pajlada",
+    "include_dirs": [
+        "include"
+    ]
+}
